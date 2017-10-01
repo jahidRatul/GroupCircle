@@ -206,8 +206,12 @@
 
 
             </li>
+            <li id="header_notification_bar" class=" dropdown">
+                <a  data-toggle="modal" data-target="#myModalShadhin"
                    class=" dropdown-toggle" href="#">
+
                     <i class="fa fa-bullhorn"></i>
+                    <span class="badge bg-warning">3</span>
                 </a>
 
 
