@@ -145,8 +145,19 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-xs-8">
-                            <label><input type="checkbox" name="remember"> Anonymous</label>
-                            <button type="submit" class="btn btn-warning btn-block">Publish </button>
+                            <label style="cursor: pointer;" for="upload-photo"><i class="fa fa-photo" style="font-size:20px; color:green"> Add Photo/Video</i></label>
+                            <input style="opacity: 0;position: absolute;z-index: -1;" type="file" name="photo" id="upload-photo" />
+                        </div>
+                    </div><div class="form-group row">
+                        <div class="col-xs-4">
+                            <label><input type="checkbox" name="remember"><b style="color: #ff7122"> Keep Anonymous</b></label>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4">
+
+                            <button type="submit" class="btn btn-warning btn-block"><i class="fa fa-check-square-o"></i> Publish </button>
                         </div>
                     </div>
                 </form>
