@@ -206,7 +206,12 @@
 
 
             </li>
+                   class=" dropdown-toggle" href="#">
+                    <i class="fa fa-bullhorn"></i>
+                </a>
 
+
+            </li>
             <!-- notification dropdown end -->
         </ul>
         <!--  notification end -->

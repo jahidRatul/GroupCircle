@@ -1,5 +1,5 @@
 
-<div id="id01" class="w3-modal">
+{{--<div id="id01" class="w3-modal">
     <section style="margin-left: 20%;margin-right: 20%" class="w3-card-4 w3-animate-zoom w3-center panel">
         <div class="compose-mail">
             <form class="w3-container" method="post">
@@ -81,8 +81,80 @@
         </div>
 
     </section>
-</div>
 
+
+</div>--}}
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModalShadhin" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div style="padding: 3%" class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">What's on your mind</h4>
+            </div>
+            <div class="">
+
+                <form>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <textarea class="form-control" style="max-width: 100% ; width: 100%" "comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4">
+
+                            <select  class="form-control" id="sel1">
+                                <option value="Public">Public </option>
+                                <option value="Friend">Friend</option>
+                                <option value="OnlyMe">Only me</option>
+                            </select>
+
+
+
+
+                        </div>
+                        <div class="col-xs-4">
+
+                            <select required id="mySelect" name="option" class="form-control" id="option">
+                                <option value="" disabled selected>Post Type</option>
+                                <option value="">About me</option>
+                                <option value="">Game</option>
+                                <option value="">Movie</option>
+                                <option value="">Song</option>
+                            </select>
+
+                        </div>
+                        <div class="col-xs-4">
+
+                            <div class="input-group">
+                                <input id="CatValue" type="text" value="Add new type" class="form-control" placeholder="Add new type" name="search">
+                                <div class="input-group-btn">
+                                   {{-- <button onclick="myFunctionCategory()" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                   --}} <a type="button" class="btn btn-default" onclick="myFunctionCategory()"><i class="fa fa-arrow-left"></i>
+                                        </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-8">
+                            <label><input type="checkbox" name="remember"> Anonymous</label>
+                            <button type="submit" class="btn btn-warning btn-block">Publish </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 <script>
     function myFunctionCategory() {
