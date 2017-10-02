@@ -1,4 +1,3 @@
-
 {{--<div id="id01" class="w3-modal">
     <section style="margin-left: 20%;margin-right: 20%" class="w3-card-4 w3-animate-zoom w3-center panel">
         <div class="compose-mail">
@@ -101,63 +100,83 @@
             </div>
             <div class="">
 
-                <form>
+                <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{url('/status')}}">
+                    {{ csrf_field() }}
                     <div class="form-group row">
                         <div class="col-xs-12">
-                            <textarea class="form-control" style="max-width: 100% ; width: 100%" "comment"></textarea>
+                            <textarea name="status" id='status' class="form-control"
+                                      style="max-width: 100% ; width: 100%"></textarea>
                         </div>
                     </div>
+                    @if ($errors->has('status'))
+                        <span class="text-danger help-block">
+                                        <strong>{{ $errors->first('status') }}</strong>
+                                    </span>
+                    @endif
                     <div class="form-group row">
                         <div class="col-xs-4">
-
-                            <select  class="form-control" id="sel1">
-                                <option value="Public">Public </option>
+                            <select name="whoSee" class="form-control" id="whoSee">
+                                <option selected value="Public">Public</option>
                                 <option value="Friend">Friend</option>
                                 <option value="OnlyMe">Only me</option>
                             </select>
-
-
-
-
                         </div>
                         <div class="col-xs-4">
-
                             <select required id="mySelect" name="option" class="form-control" id="option">
                                 <option value="" disabled selected>Post Type</option>
-                                <option value="">About me</option>
-                                <option value="">Game</option>
-                                <option value="">Movie</option>
-                                <option value="">Song</option>
+                                <option value="About me">About me</option>
+                                <option value="Game">Game</option>
+                                <option value="Movie">Movie</option>
+                                <option value="Song">Song</option>
                             </select>
-
                         </div>
                         <div class="col-xs-4">
-
                             <div class="input-group">
-                                <input id="CatValue" type="text" value="Add new type" class="form-control" placeholder="Add new type" name="search">
+                                <input id="CatValue" type="text" value="Add new type" class="form-control"
+                                       placeholder="Add new type" name="search">
                                 <div class="input-group-btn">
-                                   {{-- <button onclick="myFunctionCategory()" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                   --}} <a type="button" class="btn btn-default" onclick="myFunctionCategory()"><i class="fa fa-arrow-left"></i>
-                                        </a>
+                                    {{-- <button onclick="myFunctionCategory()" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    --}} <a type="button" class="btn btn-default" onclick="myFunctionCategory()"><i
+                                                class="fa fa-arrow-left"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-xs-8">
-                            <label style="cursor: pointer;" for="upload-photo"><i class="fa fa-photo" style="font-size:20px; color:green"> Add Photo/Video</i></label>
-                            <input style="opacity: 0;position: absolute;z-index: -1;" type="file" name="photo" id="upload-photo" />
-                        </div>
-                    </div><div class="form-group row">
-                        <div class="col-xs-4">
-                            <label><input type="checkbox" name="remember"><b style="color: #ff7122"> Keep Anonymous</b></label>
+                            {{-- <label style="cursor: pointer;" for="upload-photo"><i class="fa fa-photo" style="font-size:20px; color:green"> Add Photo/Video</i></label>
+                             <input style="opacity: 1;position: absolute;z-index: -1;" accept="image/*" type="file" name="upload-photo" id="upload-photo" />
 
+ --}}
+
+                            <i id='fadeid' style="color:green;margin-right: 10px;cursor: pointer;font-size: 20px;"
+                               class="fa fa-camera"></i><span class="name">No file selected</span>
+                            <input style=" display: none;" accept="image/*" type="file" name="upload-photo"
+                                   id="upload-photo">
+
+
+                        </div>
+                    </div>
+                    @if ($errors->has('upload-photo'))
+                        <span class="text-danger help-block">
+                                        <strong>{{ $errors->first('upload-photo') }}</strong>
+                                    </span>
+                    @endif
+
+                    <div class="form-group row">
+
+                        <div class="col-xs-4">
+                            <label><input id="anonymous" type="checkbox" name="anonymous"><b style="color: #ff7122">
+                                    Keep Anonymous</b></label>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-xs-4">
 
-                            <button type="submit" class="btn btn-warning btn-block"><i class="fa fa-check-square-o"></i> Publish </button>
+                            <button type="submit" class="btn btn-warning btn-block"><i class="fa fa-check-square-o"></i>
+                                Publish
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -183,4 +202,18 @@
             }
         });
     });
+
+    //photo
+
+
+    $("#fadeid").click(function () {
+        $("input[type='file']").trigger('click');
+    });
+
+    $('input[type="file"]').on('change', function () {
+        var val = $(this).val();
+        $(this).siblings('span').text(val);
+    })
+
 </script>
+

@@ -34,4 +34,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
+    {{--<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>--}}
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=4vk4vogixx85n8q5xpzl2fmauda7ecnt4yufa86nniska83n"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            height: 10,
+            theme: 'modern',
+            plugins: 'lists advlist image imagetools',
+        });
+    </script>
 </head>

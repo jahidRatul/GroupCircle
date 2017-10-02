@@ -12,6 +12,7 @@ class UpdateController extends Controller
     public function upLogin($id){
        // return $email;
         $userObject=User::where('id',$id)->first();
+        //$userObject=User::where('id',$id)->get();
 //        return $userObject;
        return view('frontEnd.update.loginUpdate',['userInfoById'=>$userObject]);
     }
@@ -55,6 +56,7 @@ class UpdateController extends Controller
     public function upBasicSave(Request $request){
        // return $request->all();
     //return view('frontEnd.update.eduUpdate');
+      //  $basicUpObject=new BasicUp();
         $basicUpObject=BasicUp::find($request->id);
     $basicUpObject->livingIn = $request->livingIn;
     $basicUpObject->language = $request->language;
