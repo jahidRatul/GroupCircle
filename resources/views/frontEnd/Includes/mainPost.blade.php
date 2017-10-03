@@ -174,7 +174,7 @@
                     <div class="form-group row">
                         <div class="col-xs-4">
 
-                            <button type="submit" class="btn btn-warning btn-block"><i class="fa fa-check-square-o"></i>
+                            <button  title="Publish status" type="submit" class="btn btn-warning btn-block"><i class="fa fa-check-square-o"></i>
                                 Publish
                             </button>
                         </div>

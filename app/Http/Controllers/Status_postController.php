@@ -18,10 +18,17 @@ class Status_postController extends Controller
 
         ]);
         $image = $request->file('upload-photo');
-        $name = $image->getClientOriginalName();
-        $uploadPath = 'User/image';
-        $image->move($uploadPath, $name);
-        $imageUrl = $uploadPath . $name;
+
+        if ($image==null)
+        {
+            $imageUrl='';
+        }
+        else{
+            $name = $image->getClientOriginalName();
+            $uploadPath = 'User/image/';
+            $image->move($uploadPath, $name);
+            $imageUrl = $uploadPath . $name;
+        }
         $this->saveFunction($request, $imageUrl);
         return redirect('/home');
     }

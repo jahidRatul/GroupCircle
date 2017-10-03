@@ -12,6 +12,7 @@
                 <div class="col-md-7 agile-calendar">
                     <!--<div style="width: 50%" class="agile-calendar">-->
                     <div class="row">
+                        @foreach($statusDataAlls as $statusDataAll)
                         <div style="padding: 5px;border: 1px solid #DDA2A4" class="w3-card-4 col-sm-12">
                             <div style="padding: 2px;border:1px solid #F4511E" class="panel panel-default text-left">
                                 <div class="panel-body">
@@ -23,24 +24,29 @@
                                                          style="width:60px">
                                                 </div>
                                                 <div class="media-body">
-                                                    <h3 style="color: #F4511E" class="media-heading">Moniruzzaman
-                                                        ShadhiN</h3><span class="glyphicon glyphicon-time"></span>
-                                                    <small><i>Posted on February 19, 2016</i></small>
-                                                    <div class="w3-row-padding" style="margin:0 -16px">
-                                                        <div class="w3-half">
-                                                            <img src="{{asset('frontEnd/images/a.png')}}"
-                                                                 style="width:100%" alt="Northern Lights"
-                                                                 class="w3-margin-bottom">
-                                                        </div>
-                                                        <div class="w3-half">
-                                                            <img src="{{asset('FrontEnd/images/a.png')}}"
+                                                    <h3 style="color: #F4511E" class="media-heading">{{$statusDataAll->name}}</h3><span class="glyphicon glyphicon-time"></span>
+                                                    <small><i>Posted on <b> {{$statusDataAll->post_time}}</b></i></small><br><span class="glyphicon glyphicon-time"></span>
+                                                    <small><i>Posted by <b> {{$statusDataAll->anonymous =='on' ? 'Anonymous Post':$statusDataAll->name }}</b></i></small><br><span class="glyphicon glyphicon-time"></span>
+                                                    <small><i>Post type<b> {{$statusDataAll->option}}</b></i></small><br><span class="glyphicon glyphicon-time"></span>
+                                                    <small><i>Share type<b> {{$statusDataAll->whoSee}}</b></i></small>
+                                                    <div class="w3-row-padding" style="padding-top: 3%;padding-bottom: 3%">
+
+                                                            <img class="w3-card-4  w3-image w3-col s10 "  src="{{asset($statusDataAll->upload_photo)}}"
+                                                                 style="height: 60%;margin-bottom: 5px" alt=""
+                                                                 >
+
+                                                       {{-- <img class="w3-image w3-col s10 "  src="{{asset($statusDataAll->upload_photo)}}"
+                                                             style="height: 60%" alt=""
+                                                        >--}}
+                                                        {{--<div class="w3-half">
+                                                            <img width='240px' height='240px' src="{{asset($statusDataAll->upload_photo)}}"
                                                                  style="width:100%" alt="Nature"
                                                                  class="w3-margin-bottom">
-                                                        </div>
+                                                        </div>--}}
                                                     </div>
-                                                    <div class="w3-row-padding" style="margin:0 -16px">
+                                             {{--       <div class="w3-row-padding" style="margin:0 -16px">
 
-                                                        <div class="w3-card-4">
+                                                        <div class="">
                                                             <video width="100%" controls>
                                                                 <source src="{{asset('FrontEnd/video/1.MP4')}}"
                                                                         type="video/mp4">
@@ -48,9 +54,9 @@
                                                                 Your browser does not support HTML5 video.
                                                             </video>
                                                         </div>
-                                                    </div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                    </div>--}}
+                                                    <div style="border: 1px solid #ff7122" class="well well-lg">{!! $statusDataAll->status !!}</div>
+
                                                 </div>
                                             </div>
                                             <hr>
@@ -67,7 +73,7 @@
                                     </button>
 
 
-                                    <button data-toggle="collapse" data-target="#democ" type="button"
+                                    <button data-toggle="collapse" data-target="#{{$statusDataAll->id}}" type="button"
                                             class="btn btn-default btn-sm ">
                                         <span class="glyphicon glyphicon-comment"></span> <kbd>7</kbd>
 
@@ -91,7 +97,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div id="democ" class="collapse">
+                                <div id="{{$statusDataAll->id}}" class="collapse">
 
                                     <form action="/action_page.php">
                                         <div style="margin: 15px" class="input-group">
@@ -143,7 +149,7 @@
                                 </div>
                             </div>
                         </div>
-
+                            @endforeach
                     </div>
                 </div>
                 <!-- //calendar -->
