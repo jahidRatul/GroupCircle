@@ -128,6 +128,9 @@
                                 <option value="Game">Game</option>
                                 <option value="Movie">Movie</option>
                                 <option value="Song">Song</option>
+                                @foreach($CategoryListById as $CategoryListById)
+                                <option value={{$CategoryListById->Category_name}} >{{$CategoryListById->Category_name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-xs-4">

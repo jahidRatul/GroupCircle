@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CategoryList;
 use Auth;
 use App\StatasPost;
 use Illuminate\Http\Request;
@@ -30,6 +31,11 @@ class Status_postController extends Controller
             $imageUrl = $uploadPath . $name;
         }
         $this->saveFunction($request, $imageUrl);
+
+        $categoryListAddByuser=new CategoryList();
+        $categoryListAddByuser->user_id = Auth::user()->id;
+        $categoryListAddByuser->Category_name=$request->option;
+        $categoryListAddByuser->save();
         return redirect('/home');
     }
 
