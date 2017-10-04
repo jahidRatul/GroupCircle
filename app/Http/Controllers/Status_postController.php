@@ -55,6 +55,9 @@ class Status_postController extends Controller
     {
 
         $statusObj = StatasPost::find($id);
+        $statusById1 = StatasPost::where('id',$id)->first();
+        $oldImageUrl1 = $statusById1->upload_photo;
+        unlink($oldImageUrl1);
         $statusObj->delete();
         return redirect('/home');
     }
