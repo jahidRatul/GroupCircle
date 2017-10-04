@@ -92,7 +92,7 @@
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a onclick="return confirm('Are you sure to delete')"  href="{{url('/status/delete/'.$statusDataAll->id)}}">Delete</a>
                                             </li>
-                                            <li><a href="#">Smartphone</a>
+                                            <li><a href="{{url('/status/edit/'.$statusDataAll->id)}}">Eidt</a>
                                             </li>
                                         </ul>
                                     </div>
