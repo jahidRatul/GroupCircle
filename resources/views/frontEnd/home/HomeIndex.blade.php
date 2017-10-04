@@ -90,7 +90,7 @@
                                             <span class="caret"></span></button>
 
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Tablet</a>
+                                            <li><a onclick="return confirm('Are you sure to delete')"  href="{{url('/status/delete/'.$statusDataAll->id)}}">Delete</a>
                                             </li>
                                             <li><a href="#">Smartphone</a>
                                             </li>
@@ -138,7 +138,7 @@
                                                 <span class="caret"></span></button>
 
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Tablet</a>
+                                                <li><a href="#">Delete</a>
                                                 </li>
                                                 <li><a href="#">Smartphone</a>
                                                 </li>

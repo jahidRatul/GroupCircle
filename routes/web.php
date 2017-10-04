@@ -36,3 +36,4 @@ Route::get('login/linkedin', 'linkedinLoginController@redirectToProvider');
 Route::get('login/linkedin/callback', 'linkedinLoginController@handleProviderCallback');
 
 Route::post('/status','Status_postController@statusUp');
+Route::get('/status/delete/{id}','Status_postController@statusDelete');

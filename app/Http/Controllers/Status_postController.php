@@ -51,4 +51,12 @@ class Status_postController extends Controller
         $statusObj->post_time = date("Y-m-d (h:i:sa)");
         $statusObj->save();
     }
+
+    public function statusDelete($id){
+
+        $statusObj=StatasPost::find($id);
+        $statusObj->delete();
+        return redirect('/home');
+    }
+
 }
